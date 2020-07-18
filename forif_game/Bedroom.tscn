@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://방_바닥_빨간양말.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://ScoreIndicator.tscn" type="PackedScene" id=11]
 [ext_resource path="res://방_벽_보라껌.png" type="Texture" id=12]
 [ext_resource path="res://Suregi.tscn" type="PackedScene" id=13]
+[ext_resource path="res://3. [W2] Loyalty_Freak_Music_-_07_-_Sweat_Time_ (online-audio-converter.com).ogg" type="AudioStream" id=14]
 
 [node name="World" type="Node"]
 
@@ -826,6 +827,10 @@ texture = ExtResource( 6 )
 
 [node name="Node2D3" type="Node2D" parent="Deco"]
 position = Vector2( -3.89603, -1.948 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+autoplay = true
 [connection signal="hit" from="Player" to="CanvasLayer/HealthIndicator" method="_on_Player_hit"]
 [connection signal="item_equip" from="Player" to="CanvasLayer/Control/ItemIndicator" method="_on_Player_item_equip"]
 [connection signal="score" from="Player" to="CanvasLayer/Control/ScoreIndicator" method="_on_Player_score"]

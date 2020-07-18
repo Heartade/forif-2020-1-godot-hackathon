@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://ScoreIndicator.tscn" type="PackedScene" id=1]
 [ext_resource path="res://DirtAutoTile.tres" type="TileSet" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Sprites/Deco/주방_바닥_포도쥬스.png" type="Texture" id=22]
 [ext_resource path="res://Sprites/Deco/주방_벽_케찹.png" type="Texture" id=23]
 [ext_resource path="res://Sprites/Deco/주방_벽_마요네즈.png" type="Texture" id=24]
+[ext_resource path="res://8.-_GG_-Loyalty_Freak_Music_-_05_-_We_all_gonna_die_.ogg" type="AudioStream" id=25]
 
 [node name="World" type="Node"]
 
@@ -118,7 +119,7 @@ position = Vector2( 1020, 812 )
 position = Vector2( 1068, 812 )
 
 [node name="ItemBoxClosed4" parent="Walls" instance=ExtResource( 8 )]
-position = Vector2( 396, 812 )
+position = Vector2( 414, 812 )
 
 [node name="ItemBoxOpen" parent="Walls" instance=ExtResource( 16 )]
 position = Vector2( 228, 492 )
@@ -450,6 +451,10 @@ position = Vector2( 1128, 152 )
 rotation = 1.5708
 scale = Vector2( 1.20776, 1.20776 )
 texture = ExtResource( 20 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 25 )
+autoplay = true
 [connection signal="hit" from="Player" to="CanvasLayer/HealthIndicator" method="_on_Player_hit"]
 [connection signal="item_equip" from="Player" to="CanvasLayer/Control/ItemIndicator" method="_on_Player_item_equip"]
 [connection signal="score" from="Player" to="CanvasLayer/Control/ScoreIndicator" method="_on_Player_score"]

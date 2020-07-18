@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/3. [W2] Loyalty_Freak_Music_-_07_-_Sweat_Time_ (online-audio-converter.com).ogg-54d932cbbc8589147635307c1077c1a2.oggstr"
+
+[deps]
+
+source_file="res://3. [W2] Loyalty_Freak_Music_-_07_-_Sweat_Time_ (online-audio-converter.com).ogg"
+dest_files=[ "res://.import/3. [W2] Loyalty_Freak_Music_-_07_-_Sweat_Time_ (online-audio-converter.com).ogg-54d932cbbc8589147635307c1077c1a2.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Komiku_-_70_-_Ending.ogg-940fc3bda1d747da33aad64325144483.oggstr"
+
+[deps]
+
+source_file="res://Komiku_-_70_-_Ending.ogg"
+dest_files=[ "res://.import/Komiku_-_70_-_Ending.ogg-940fc3bda1d747da33aad64325144483.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

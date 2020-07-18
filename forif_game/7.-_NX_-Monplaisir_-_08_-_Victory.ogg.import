@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/7.-_NX_-Monplaisir_-_08_-_Victory.ogg-363441049854721390fdd6bf0236473c.oggstr"
+
+[deps]
+
+source_file="res://7.-_NX_-Monplaisir_-_08_-_Victory.ogg"
+dest_files=[ "res://.import/7.-_NX_-Monplaisir_-_08_-_Victory.ogg-363441049854721390fdd6bf0236473c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

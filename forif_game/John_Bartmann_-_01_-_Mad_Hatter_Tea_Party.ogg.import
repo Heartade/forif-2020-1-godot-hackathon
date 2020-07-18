@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/John_Bartmann_-_01_-_Mad_Hatter_Tea_Party.ogg-c95df79124d2b1d444829ae689ad3bab.oggstr"
+
+[deps]
+
+source_file="res://John_Bartmann_-_01_-_Mad_Hatter_Tea_Party.ogg"
+dest_files=[ "res://.import/John_Bartmann_-_01_-_Mad_Hatter_Tea_Party.ogg-c95df79124d2b1d444829ae689ad3bab.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

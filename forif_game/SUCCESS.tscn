@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://성공.jpg" type="Texture" id=1]
+[ext_resource path="res://7.-_NX_-Monplaisir_-_08_-_Victory.ogg" type="AudioStream" id=2]
 
 [node name="SUCCESS" type="Control"]
 anchor_right = 1.0
@@ -17,3 +18,7 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true

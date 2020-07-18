@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/4.-_W3_-Loyalty_Freak_Music_-_01_-_Roller_Fever.ogg-2291e69c695b9fb6177318d61c3c1f2d.oggstr"
+
+[deps]
+
+source_file="res://4.-_W3_-Loyalty_Freak_Music_-_01_-_Roller_Fever.ogg"
+dest_files=[ "res://.import/4.-_W3_-Loyalty_Freak_Music_-_01_-_Roller_Fever.ogg-2291e69c695b9fb6177318d61c3c1f2d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
