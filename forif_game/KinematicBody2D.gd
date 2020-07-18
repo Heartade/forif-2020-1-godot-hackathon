@@ -26,11 +26,26 @@ const MAX_SPEED = 200
 signal hit
 var health = 3
 
+signal item_equip
+const ITEM_STATUS = ['NONE', 'MOP', 'BROOM', 'BAG', 'HEART']
+var current_item = 0
+
 func hit():
 	health -= 1
 	if health == 0:
 		get_tree().reload_current_scene()
 	emit_signal("hit", health)
+	
+# ITEM RETRIEVAL PROCESS:
+# 플레이어가 아이템에 접촉하면 get_item()에서 signal item_equip 발령
+# ItemIndicator에서 item_equip 시그널을 받아 타이머 가동
+# 타이머 만료 시 ItemIndicator에서 item_expire 시그널 발령
+func get_item(code):
+	if ITEM_STATUS[code] == 'HEART':
+		if health < 3: health += 1
+	else:
+		current_item = code
+		emit_signal("item_equip", code)
 
 # func는 함수를 선언한다는 의미입니다.
 # _physics_process 함수는 물리적 연산을 수행하는
@@ -90,9 +105,8 @@ func _physics_process(delta):
 	# 이로 인해 이번 Tick에서 KinematicBody2D는
 	# 초속 (100, 0)의 속도로 움직이게 됩니다.
 	motion = move_and_slide(motion, UP)
-	
-	for i in get_slide_count():
-		var collision = get_slide_collision(i)
-		if collision.collider.has_method("enemy_hit"):
-			collision.collider.enemy_hit()
 
+
+
+func _on_ItemIndicator_item_expire():
+	current_item = 0

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/web.png-837a742883e81e63da3d6d4bb41aa2f3.stex"
+path="res://.import/방_벽_초록껌.png-5ef45d5bf6acb203e38fcd959a72cd13.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/web.png"
-dest_files=[ "res://.import/web.png-837a742883e81e63da3d6d4bb41aa2f3.stex" ]
+source_file="res://Sprites/Deco/방_벽_초록껌.png"
+dest_files=[ "res://.import/방_벽_초록껌.png-5ef45d5bf6acb203e38fcd959a72cd13.stex" ]
 
 [params]
 
