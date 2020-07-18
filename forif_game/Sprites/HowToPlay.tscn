@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://하우뚜쁠레이.jpg" type="Texture" id=1]
+[ext_resource path="res://스타뜨겜.png" type="Texture" id=2]
+[ext_resource path="res://HowToPlay.gd" type="Script" id=3]
+
+[node name="HowToPlay" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 500.0
+margin_top = 300.0
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartGameButton" type="Button" parent="VBoxContainer"]
+margin_right = 132.0
+margin_bottom = 38.0
+icon = ExtResource( 2 )
+flat = true
+[connection signal="pressed" from="VBoxContainer/StartGameButton" to="." method="_on_StartGame_pressed"]

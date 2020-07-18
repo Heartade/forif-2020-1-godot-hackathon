@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+export(String, FILE, "*.tscn") var game_over = "World.tscn"
+
 # var는 변수를 선언한다는 의미입니다.
 # Vector2는 2차원 벡터 객체를 나타냅니다.
 # Vector2()는 Vector2 객체의 기본 생성자로,
@@ -28,12 +30,23 @@ var health = 3
 
 signal item_equip
 const ITEM_STATUS = ['NONE', 'MOP', 'BROOM', 'BAG', 'HEART']
+const SUREGI_TYPE = ['DUST', 'CRUMBLE', 'PET']
+const SUREGI_VALUE = [1, 2, 5]
 var current_item = 0
+
+signal score
+
+# 점수가 오르면 ScoreIndicator로 시그널 발령
+func score(type):
+	var value = SUREGI_VALUE[type]
+	if current_item == type + 1:
+		value += 1
+	emit_signal("score", value)
 
 func hit():
 	health -= 1
 	if health == 0:
-		get_tree().reload_current_scene()
+		get_tree().change_scene(game_over)
 	emit_signal("hit", health)
 	
 # ITEM RETRIEVAL PROCESS:
@@ -42,7 +55,9 @@ func hit():
 # 타이머 만료 시 ItemIndicator에서 item_expire 시그널 발령
 func get_item(code):
 	if ITEM_STATUS[code] == 'HEART':
-		if health < 3: health += 1
+		if health < 3: 
+			health += 1
+			emit_signal("hit", health)
 	else:
 		current_item = code
 		emit_signal("item_equip", code)

@@ -37,5 +37,4 @@ shape = SubResource( 1 )
 frames = SubResource( 2 )
 frame = 1
 playing = true
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

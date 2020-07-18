@@ -2,7 +2,7 @@ extends Control
 
 export(float) var time_limit = 1000
 
-
+signal timeout
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,5 +13,6 @@ func _ready():
 func _process(delta):
 	$TimeProgress.value = $Timer.time_left
 
+
 func _on_Timer_timeout():
-	get_tree().reload_current_scene()
+	emit_signal("timeout")
