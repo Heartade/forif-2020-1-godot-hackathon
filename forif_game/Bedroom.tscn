@@ -1,0 +1,833 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://방_바닥_빨간양말.png" type="Texture" id=2]
+[ext_resource path="res://DirtAutoTile.tres" type="TileSet" id=3]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://HealthIndicator.tscn" type="PackedScene" id=5]
+[ext_resource path="res://방_바닥_파란양말.png" type="Texture" id=6]
+[ext_resource path="res://TimeIndicator.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ItemBoxClosed.tscn" type="PackedScene" id=8]
+[ext_resource path="res://ItemIndicator.tscn" type="PackedScene" id=9]
+[ext_resource path="res://방_벽_초록껌.png" type="Texture" id=10]
+[ext_resource path="res://ScoreIndicator.tscn" type="PackedScene" id=11]
+[ext_resource path="res://방_벽_보라껌.png" type="Texture" id=12]
+[ext_resource path="res://Suregi.tscn" type="PackedScene" id=13]
+
+[node name="World" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 279.649, 160 )
+game_over = "res://GameOver.tscn"
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -2
+tile_set = ExtResource( 3 )
+collision_layer = 3
+format = 1
+tile_data = PoolIntArray( -262108, 1, 196613, -262106, 1, 6, -262105, 1, 196610, -262099, 1, 5, -196576, 1, 196608, -196575, 1, 7, -196570, 1, 65541, -196563, 1, 65541, -131050, 1, 1, -131049, 1, 2, -131045, 1, 1, -131044, 1, 65536, -131043, 1, 2, -131039, 1, 131077, -131034, 1, 131075, -131033, 1, 196609, -131032, 1, 196609, -131031, 1, 196609, -131030, 1, 196609, -131029, 1, 196610, -131027, 1, 65541, -65514, 1, 131073, -65513, 1, 131074, -65509, 1, 131073, -65508, 1, 196619, -65507, 1, 131074, -65498, 1, 65541, -65491, 1, 65541, 65534, 1, 196608, 65535, 1, 7, 19, 1, 1, 20, 1, 2, 22, 1, 131073, 23, 1, 131074, 27, 1, 131073, 28, 1, 196619, 29, 1, 131074, 33, 1, 5, 38, 1, 65541, 40, 1, 196608, 41, 1, 196609, 42, 1, 196609, 43, 1, 196609, 44, 1, 196609, 45, 1, 196612, 131071, 1, 131075, 65536, 1, 196610, 65547, 1, 1, 65548, 1, 2, 65551, 1, 1, 65552, 1, 2, 65555, 1, 65537, 65556, 1, 65538, 65558, 1, 65537, 65559, 1, 65538, 65563, 1, 65537, 65564, 1, 131072, 65565, 1, 65538, 65569, 1, 65541, 65574, 1, 65541, 65581, 1, 65541, 196607, 1, 65541, 131083, 1, 131073, 131084, 1, 131074, 131087, 1, 131073, 131088, 1, 131074, 131104, 1, 1, 131105, 1, 131081, 131106, 1, 196609, 131107, 1, 196610, 131110, 1, 131075, 131111, 1, 196609, 131112, 1, 196609, 131113, 1, 196609, 131114, 1, 196609, 131115, 1, 196610, 131117, 1, 65541, 262143, 1, 131075, 196608, 1, 196609, 196609, 1, 196609, 196610, 1, 196609, 196611, 1, 196609, 196612, 1, 196609, 196613, 1, 196609, 196614, 1, 196609, 196615, 1, 196609, 196616, 1, 196609, 196617, 1, 196609, 196618, 1, 196609, 196619, 1, 65544, 196620, 1, 65547, 196621, 1, 196609, 196622, 1, 196609, 196623, 1, 65544, 196624, 1, 131079, 196625, 1, 2, 196640, 1, 131073, 196641, 1, 131074, 196646, 1, 65541, 196653, 1, 65541, 327679, 1, 65541, 262160, 1, 65537, 262161, 1, 65547, 262162, 1, 196609, 262163, 1, 196609, 262164, 1, 196609, 262165, 1, 196609, 262166, 1, 196609, 262167, 1, 196609, 262168, 1, 196609, 262169, 1, 196609, 262170, 1, 196609, 262171, 1, 196609, 262172, 1, 196609, 262173, 1, 196609, 262174, 1, 196609, 262175, 1, 196609, 262176, 1, 65544, 262177, 1, 65545, 262182, 1, 65541, 262184, 1, 196608, 262185, 1, 196609, 262186, 1, 196609, 262187, 1, 196609, 262188, 1, 196609, 262189, 1, 196612, 393215, 1, 65541, 327713, 1, 65541, 327716, 1, 196608, 327717, 1, 196609, 327718, 1, 196612, 327725, 1, 65541, 458751, 1, 65541, 393249, 1, 65541, 393254, 1, 131075, 393255, 1, 196609, 393256, 1, 196609, 393257, 1, 196609, 393258, 1, 196609, 393259, 1, 196610, 393261, 1, 65541, 524287, 1, 65541, 458755, 1, 196608, 458756, 1, 196609, 458757, 1, 196610, 458785, 1, 65541, 458790, 1, 65541, 458797, 1, 65541, 589823, 1, 65541, 524296, 1, 196613, 524299, 1, 196613, 524321, 1, 131075, 524322, 1, 196609, 524323, 1, 196610, 524326, 1, 65541, 524328, 1, 196608, 524329, 1, 196609, 524330, 1, 196609, 524331, 1, 196609, 524332, 1, 196609, 524333, 1, 196612, 655359, 1, 65541, 589838, 1, 196613, 589857, 1, 65541, 589862, 1, 65541, 589869, 1, 65541, 720895, 1, 65541, 655377, 1, 196613, 655393, 1, 65541, 655398, 1, 131075, 655399, 1, 196609, 655400, 1, 196609, 655401, 1, 196609, 655402, 1, 196609, 655403, 1, 196610, 655405, 1, 65541, 786431, 1, 65541, 720897, 1, 196613, 720906, 1, 5, 720915, 1, 5, 720929, 1, 65541, 720932, 1, 196608, 720933, 1, 196609, 720934, 1, 196612, 720941, 1, 65541, 851967, 1, 65541, 786442, 1, 65542, 786443, 1, 196609, 786444, 1, 196609, 786445, 1, 196609, 786446, 1, 196609, 786447, 1, 196609, 786448, 1, 196609, 786449, 1, 196609, 786450, 1, 196609, 786451, 1, 196612, 786465, 1, 65541, 786470, 1, 65541, 786472, 1, 196608, 786473, 1, 196609, 786474, 1, 196609, 786475, 1, 196609, 786476, 1, 196609, 786477, 1, 196612, 917503, 1, 65541, 851973, 1, 196613, 851987, 1, 131075, 851988, 1, 196609, 851989, 1, 196609, 851990, 1, 196609, 851991, 1, 196610, 852001, 1, 65541, 852006, 1, 65541, 852013, 1, 65541, 983039, 1, 65541, 917523, 1, 65541, 917537, 1, 131075, 917538, 1, 196609, 917539, 1, 196610, 917542, 1, 131075, 917543, 1, 196609, 917544, 1, 196609, 917545, 1, 196609, 917546, 1, 196609, 917547, 1, 196610, 917549, 1, 65541, 1048575, 1, 65541, 983041, 1, 196613, 983059, 1, 65541, 983066, 1, 196608, 983067, 1, 196609, 983068, 1, 196609, 983069, 1, 196610, 983073, 1, 65541, 983078, 1, 65541, 983085, 1, 65541, 1114111, 1, 65541, 1048595, 1, 65541, 1048609, 1, 65541, 1048614, 1, 65541, 1048616, 1, 196608, 1048617, 1, 196609, 1048618, 1, 196609, 1048619, 1, 196609, 1048620, 1, 196609, 1048621, 1, 196612, 1179647, 1, 65541, 1114117, 1, 196613, 1114131, 1, 65541, 1114143, 1, 196608, 1114144, 1, 196609, 1114145, 1, 196612, 1114148, 1, 196608, 1114149, 1, 196609, 1114150, 1, 196612, 1114157, 1, 65541, 1245183, 1, 65541, 1179667, 1, 65541, 1179681, 1, 65541, 1179686, 1, 131075, 1179687, 1, 196609, 1179688, 1, 196609, 1179689, 1, 196609, 1179690, 1, 196609, 1179691, 1, 196610, 1179693, 1, 65541, 1310719, 1, 65541, 1245185, 1, 196613, 1245203, 1, 65541, 1245210, 1, 196608, 1245211, 1, 196609, 1245212, 1, 196609, 1245213, 1, 196610, 1245217, 1, 65541, 1245222, 1, 65541, 1245229, 1, 65541, 1376255, 1, 65541, 1310739, 1, 65541, 1310753, 1, 65542, 1310754, 1, 196609, 1310755, 1, 196610, 1310758, 1, 65541, 1310760, 1, 196608, 1310761, 1, 196609, 1310762, 1, 196609, 1310763, 1, 196609, 1310764, 1, 196609, 1310765, 1, 196612, 1441791, 1, 65541, 1376261, 1, 196613, 1376275, 1, 131075, 1376276, 1, 196609, 1376277, 1, 196609, 1376278, 1, 196609, 1376279, 1, 196609, 1376280, 1, 196610, 1376294, 1, 65541, 1376301, 1, 65541, 1507327, 1, 65541, 1441807, 1, 196608, 1441808, 1, 196609, 1441809, 1, 196610, 1441811, 1, 65541, 1441830, 1, 131075, 1441831, 1, 196609, 1441832, 1, 196609, 1441833, 1, 196609, 1441834, 1, 196609, 1441835, 1, 196610, 1441837, 1, 65541, 1572863, 1, 65541, 1507329, 1, 196613, 1507340, 1, 196613, 1507347, 1, 65541, 1507354, 1, 196608, 1507355, 1, 196609, 1507356, 1, 196609, 1507357, 1, 196610, 1507364, 1, 196608, 1507365, 1, 196609, 1507366, 1, 196612, 1507373, 1, 65541, 1638399, 1, 65541, 1572883, 1, 8, 1572884, 1, 65536, 1572885, 1, 65536, 1572886, 1, 65536, 1572887, 1, 2, 1572902, 1, 65541, 1572904, 1, 196608, 1572905, 1, 196609, 1572906, 1, 196609, 1572907, 1, 196609, 1572908, 1, 196609, 1572909, 1, 65543, 1703935, 1, 65541, 1638405, 1, 196613, 1638408, 1, 196608, 1638409, 1, 196610, 1638419, 1, 65537, 1638420, 1, 196618, 1638421, 1, 131072, 1638422, 1, 196618, 1638423, 1, 65547, 1638424, 1, 131076, 1638425, 1, 196609, 1638426, 1, 131076, 1638427, 1, 196609, 1638428, 1, 131076, 1638429, 1, 196609, 1638430, 1, 10, 1638431, 1, 65536, 1638432, 1, 65536, 1638433, 1, 65536, 1638434, 1, 65536, 1638435, 1, 65536, 1638436, 1, 65536, 1638437, 1, 65536, 1638438, 1, 11, 1769471, 1, 65541, 1703956, 1, 65541, 1703958, 1, 131077, 1703960, 1, 65541, 1703962, 1, 131077, 1703964, 1, 65541, 1703966, 1, 65537, 1703967, 1, 131072, 1703968, 1, 131072, 1703969, 1, 131072, 1703970, 1, 131072, 1703971, 1, 131072, 1703972, 1, 131072, 1703973, 1, 131072, 1703974, 1, 65547, 1703975, 1, 196609, 1703976, 1, 196609, 1703977, 1, 196609, 1703978, 1, 196609, 1703979, 1, 196610, 1835007, 1, 65541, 1769492, 1, 65541, 1769496, 1, 65541, 1769500, 1, 131077, 1900543, 1, 65541, 1835028, 1, 131077, 1835030, 1, 5, 1835032, 1, 131077, 1835034, 1, 5, 1835038, 1, 5, 1835049, 1, 5, 1835053, 1, 5, 1966079, 1, 65541, 1900566, 1, 65541, 1900570, 1, 65541, 1900574, 1, 65541, 1900585, 1, 65541, 1900589, 1, 65541, 2031615, 1, 8, 1966080, 1, 65536, 1966081, 1, 65536, 1966082, 1, 65536, 1966083, 1, 65536, 1966084, 1, 65536, 1966085, 1, 65536, 1966086, 1, 65536, 1966087, 1, 65536, 1966088, 1, 65536, 1966089, 1, 65536, 1966090, 1, 65536, 1966091, 1, 65536, 1966092, 1, 65536, 1966093, 1, 65536, 1966094, 1, 65536, 1966095, 1, 65536, 1966096, 1, 65536, 1966097, 1, 65536, 1966098, 1, 65536, 1966099, 1, 65536, 1966100, 1, 65536, 1966101, 1, 65536, 1966102, 1, 131082, 1966103, 1, 65536, 1966104, 1, 65536, 1966105, 1, 65536, 1966106, 1, 131082, 1966107, 1, 65536, 1966108, 1, 65536, 1966109, 1, 65536, 1966110, 1, 131082, 1966111, 1, 65536, 1966112, 1, 65536, 1966113, 1, 65536, 1966114, 1, 65536, 1966115, 1, 65536, 1966116, 1, 65536, 1966117, 1, 65536, 1966118, 1, 65536, 1966119, 1, 65536, 1966120, 1, 65536, 1966121, 1, 11, 1966125, 1, 65541, 2097151, 1, 65537, 2031616, 1, 131072, 2031617, 1, 131072, 2031618, 1, 131072, 2031619, 1, 131072, 2031620, 1, 131072, 2031621, 1, 131072, 2031622, 1, 131072, 2031623, 1, 131072, 2031624, 1, 131072, 2031625, 1, 131072, 2031626, 1, 131072, 2031627, 1, 131072, 2031628, 1, 131072, 2031629, 1, 131072, 2031630, 1, 131072, 2031631, 1, 131072, 2031632, 1, 131072, 2031633, 1, 131072, 2031634, 1, 131072, 2031635, 1, 131072, 2031636, 1, 131072, 2031637, 1, 131072, 2031638, 1, 131072, 2031639, 1, 131072, 2031640, 1, 131072, 2031641, 1, 131072, 2031642, 1, 131072, 2031643, 1, 131072, 2031644, 1, 131072, 2031645, 1, 131072, 2031646, 1, 131072, 2031647, 1, 131072, 2031648, 1, 131072, 2031649, 1, 131072, 2031650, 1, 131072, 2031651, 1, 131072, 2031652, 1, 131072, 2031653, 1, 131072, 2031654, 1, 131072, 2031655, 1, 131072, 2031656, 1, 131072, 2031657, 1, 65547, 2031658, 1, 196609, 2031659, 1, 196609, 2031660, 1, 196609, 2031661, 1, 65543 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 311, 441 )
+
+[node name="Enemy" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( 921.415, -219.025 )
+
+[node name="Enemy2" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( 1039.74, -216.507 )
+
+[node name="Enemy3" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( 1173.17, -219.025 )
+
+[node name="Enemy4" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( 1319.19, -224.06 )
+
+[node name="Enemy5" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( 1452.61, -226.578 )
+
+[node name="Enemy6" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( 1608.7, -221.543 )
+
+[node name="Enemy7" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( 1321.02, 1134.67 )
+
+[node name="Enemy8" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( 1608.7, 1141.52 )
+
+[node name="Enemy9" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( 1906.66, 1131.25 )
+
+[node name="Enemy10" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( 532.55, 296.396 )
+
+[node name="Enemy11" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( 744.259, 308.38 )
+
+[node name="Enemy12" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( -202.437, 1442.82 )
+
+[node name="Enemy13" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( -82.602, 1438.82 )
+
+[node name="Enemy14" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( 37.2329, 1434.83 )
+
+[node name="Enemy15" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( 185.029, 1434.83 )
+
+[node name="Enemy16" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( 316.848, 1430.83 )
+
+[node name="Enemy17" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( 472.633, 1438.82 )
+
+[node name="Enemy18" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( 1826.77, 1422.84 )
+
+[node name="Enemy19" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( 1982.55, 1418.85 )
+
+[node name="Enemy20" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( 2405.97, 1506.73 )
+
+[node name="Enemy21" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( 2469.88, 1526.7 )
+
+[node name="Enemy22" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( 2537.79, 1510.72 )
+
+[node name="Enemy23" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( 2457.9, 1490.75 )
+
+[node name="Enemy24" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( 2501.84, 1482.76 )
+
+[node name="Enemy25" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( 2465.89, 1446.81 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthIndicator" parent="CanvasLayer" instance=ExtResource( 5 )]
+margin_top = 2.0
+margin_bottom = 2.0
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_right = 6.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ItemIndicator" parent="CanvasLayer/Control" instance=ExtResource( 9 )]
+
+[node name="TimeIndicator" parent="CanvasLayer/Control" instance=ExtResource( 7 )]
+time_limit = 100.0
+
+[node name="ScoreIndicator" parent="CanvasLayer/Control" instance=ExtResource( 11 )]
+next_scene = "res://Kitchen.tscn"
+game_over = "res://GameOver.tscn"
+max_score = 80
+
+[node name="ItemBoxClosed2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 275.394, 420.587 )
+
+[node name="ItemBoxClosed" parent="." instance=ExtResource( 8 )]
+position = Vector2( -85.0688, -19.7005 )
+
+[node name="ItemBoxClosed3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2463.49, -279.765 )
+
+[node name="ItemBoxClosed4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1047.16, 1384.42 )
+
+[node name="Suregi-Pet" type="Node2D" parent="."]
+position = Vector2( 764.21, 41.8617 )
+
+[node name="Suregi" parent="Suregi-Pet" instance=ExtResource( 13 )]
+
+[node name="Suregi21" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( -280.832, 116.443 )
+
+[node name="Suregi22" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( -215.761, 116.443 )
+
+[node name="Suregi23" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( -154.818, 113.721 )
+
+[node name="Suregi2" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 225.036, -5.55139 )
+
+[node name="Suregi3" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 289.241, -5.50734 )
+
+[node name="Suregi4" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 483.091, -63.4105 )
+
+[node name="Suregi5" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 542.165, -63.4105 )
+
+[node name="Suregi6" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 685.305, -199.735 )
+
+[node name="Suregi7" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 744.379, -204.279 )
+
+[node name="Suregi8" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1007.5, -210.26 )
+
+[node name="Suregi9" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1070.89, -218.462 )
+
+[node name="Suregi10" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1132.68, -218.462 )
+
+[node name="Suregi11" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1384.66, -268.448 )
+
+[node name="Suregi12" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1380.56, -70.2268 )
+
+[node name="Suregi13" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 671.673, 116.083 )
+
+[node name="Suregi14" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 728.475, 111.539 )
+
+[node name="Suregi15" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 489.907, 109.267 )
+
+[node name="Suregi16" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 544.437, 106.995 )
+
+[node name="Suregi17" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 994.307, 109.267 )
+
+[node name="Suregi69" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2091.56, -70.0034 )
+
+[node name="Suregi70" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2011.2, -63.8217 )
+
+[node name="Suregi71" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1921.57, -60.7309 )
+
+[node name="Suregi72" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1847.39, -57.64 )
+
+[node name="Suregi73" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1767.02, 59.8129 )
+
+[node name="Suregi74" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1844.29, 59.8129 )
+
+[node name="Suregi75" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1937.02, 50.5403 )
+
+[node name="Suregi76" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2014.29, 56.722 )
+
+[node name="Suregi77" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2094.65, 59.8128 )
+
+[node name="Suregi78" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1776.3, -45.2766 )
+
+[node name="Suregi79" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2088.47, 171.084 )
+
+[node name="Suregi80" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2017.38, 171.084 )
+
+[node name="Suregi81" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1946.29, 180.357 )
+
+[node name="Suregi82" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1865.93, 177.266 )
+
+[node name="Suregi83" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1788.66, 186.538 )
+
+[node name="Suregi84" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1782.48, 300.9 )
+
+[node name="Suregi85" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1865.93, 300.9 )
+
+[node name="Suregi86" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1964.84, 300.9 )
+
+[node name="Suregi87" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2042.11, 307.082 )
+
+[node name="Suregi88" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2100.84, 303.991 )
+
+[node name="Suregi89" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2100.84, 303.991 )
+
+[node name="Suregi90" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2091.56, 430.717 )
+
+[node name="Suregi91" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2029.75, 427.626 )
+
+[node name="Suregi92" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1949.39, 424.535 )
+
+[node name="Suregi93" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1878.3, 436.898 )
+
+[node name="Suregi94" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1776.3, 443.08 )
+
+[node name="Suregi95" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1763.93, 566.714 )
+
+[node name="Suregi96" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1872.11, 560.533 )
+
+[node name="Suregi97" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1955.57, 560.533 )
+
+[node name="Suregi98" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2023.57, 563.624 )
+
+[node name="Suregi99" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2091.57, 557.442 )
+
+[node name="Suregi100" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2094.66, 681.076 )
+
+[node name="Suregi101" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2029.75, 675.518 )
+
+[node name="Suregi102" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1967.93, 684.791 )
+
+[node name="Suregi103" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1887.57, 678.609 )
+
+[node name="Suregi104" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1788.66, 694.063 )
+
+[node name="Suregi105" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1788.66, 811.516 )
+
+[node name="Suregi106" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1890.66, 817.698 )
+
+[node name="Suregi107" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1971.02, 814.607 )
+
+[node name="Suregi108" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2054.48, 811.516 )
+
+[node name="Suregi109" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2094.66, 814.607 )
+
+[node name="Suregi110" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2088.47, 924.169 )
+
+[node name="Suregi111" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2099.63, 1074.8 )
+
+[node name="Suregi137" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2099.63, 1189.17 )
+
+[node name="Suregi136" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2038.26, 952.064 )
+
+[node name="Suregi112" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1965.67, 955.077 )
+
+[node name="Suregi113" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1878.82, 958.168 )
+
+[node name="Suregi114" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1788.66, 964.35 )
+
+[node name="Suregi115" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1779.39, 1060.17 )
+
+[node name="Suregi116" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1868.64, 1066.35 )
+
+[node name="Suregi117" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1953.19, 1079.95 )
+
+[node name="Suregi118" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2037.85, 1070.97 )
+
+[node name="Suregi119" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2025.78, 1197.1 )
+
+[node name="Suregi120" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1965.14, 1201.2 )
+
+[node name="Suregi121" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1873.43, 1211.04 )
+
+[node name="Suregi122" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1786.28, 1208.26 )
+
+[node name="Suregi123" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1799.02, 1312.36 )
+
+[node name="Suregi124" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1885.79, 1321.03 )
+
+[node name="Suregi125" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1963.67, 1318.24 )
+
+[node name="Suregi126" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2083.38, 1321.64 )
+
+[node name="Suregi138" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2030.38, 1324.43 )
+
+[node name="Suregi127" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2088.06, 1462.01 )
+
+[node name="Suregi128" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2017.05, 1456.73 )
+
+[node name="Suregi129" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1947.16, 1459.52 )
+
+[node name="Suregi130" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1869.59, 1459.52 )
+
+[node name="Suregi139" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1783.12, 1459.52 )
+
+[node name="Suregi140" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1783.12, 1585.05 )
+
+[node name="Suregi131" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1836.49, 1581.27 )
+
+[node name="Suregi132" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1935.02, 1584.36 )
+
+[node name="Suregi133" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2009.2, 1578.18 )
+
+[node name="Suregi134" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2092.66, 1572 )
+
+[node name="Suregi135" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2092.66, 1572 )
+
+[node name="Suregi18" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1060.2, 111.539 )
+
+[node name="Suregi19" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1132.9, 106.995 )
+
+[node name="Suregi20" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2147.86, -332.91 )
+type = 2
+
+[node name="Suregi24" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1255.36, 1441.94 )
+
+[node name="Suregi27" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 894.352, 1328.37 )
+
+[node name="Suregi28" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 837.816, 1256.55 )
+
+[node name="Suregi29" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 771.008, 1258.22 )
+
+[node name="Suregi30" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 821.114, 1141.31 )
+
+[node name="Suregi32" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1198.57, 1076.17 )
+
+[node name="Suregi33" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1183.98, 892.169 )
+
+[node name="Suregi37" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1232.78, 888.915 )
+
+[node name="Suregi65" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1150.79, 1084.14 )
+
+[node name="Suregi34" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 904.623, 812.281 )
+
+[node name="Suregi35" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 836.146, 748.814 )
+
+[node name="Suregi36" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 765.998, 743.804 )
+rotation = 0.00533209
+
+[node name="Suregi38" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 371.488, 566.852 )
+rotation = 0.00533209
+
+[node name="Suregi39" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 173.084, 509.979 )
+rotation = 0.00533209
+
+[node name="Suregi40" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( -18.2483, 443.012 )
+rotation = 0.00533209
+
+[node name="Suregi41" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( -216.755, 435.837 )
+rotation = 0.00533209
+
+[node name="Suregi42" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( -403.304, 373.654 )
+rotation = 0.00533209
+type = 2
+
+[node name="Suregi43" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( -539.628, 376.046 )
+rotation = 0.00533209
+type = 2
+
+[node name="Suregi44" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( -666.386, 631.953 )
+rotation = 0.00533209
+
+[node name="Suregi45" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( -403.241, 766.445 )
+rotation = 0.00533209
+
+[node name="Suregi46" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( -667.054, 913.563 )
+rotation = 0.00533209
+
+[node name="Suregi63" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( -406.77, 1033.94 )
+rotation = 0.00533209
+
+[node name="Suregi47" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( -664.192, 1152.53 )
+rotation = 0.00533209
+
+[node name="Suregi48" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( -404.573, 1285.97 )
+rotation = 0.00533209
+
+[node name="Suregi49" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( -668.673, 1413.09 )
+rotation = 0.00533209
+
+[node name="Suregi64" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( -411.643, 1539.98 )
+rotation = 0.00533209
+
+[node name="Suregi50" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( -161.748, 1550.35 )
+rotation = 0.00533209
+
+[node name="Suregi51" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 36.7595, 1411.63 )
+rotation = 0.00533209
+
+[node name="Suregi52" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 232.875, 1347.06 )
+rotation = 0.00533209
+type = 2
+
+[node name="Suregi53" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 350.066, 1344.66 )
+rotation = 0.00533209
+type = 2
+
+[node name="Suregi54" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 617.931, 1729.72 )
+rotation = 0.00533209
+
+[node name="Suregi55" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 747.08, 1846.91 )
+rotation = 0.00533209
+
+[node name="Suregi56" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 871.446, 1720.15 )
+rotation = 0.00533209
+
+[node name="Suregi57" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1050.82, 1846.91 )
+rotation = 0.00533209
+
+[node name="Suregi58" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1196.71, 1727.33 )
+rotation = 0.00533209
+
+[node name="Suregi59" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1469.36, 1720.15 )
+rotation = 0.00533209
+
+[node name="Suregi66" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1371.3, 1715.37 )
+rotation = 0.00533209
+
+[node name="Suregi67" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1572.2, 1722.55 )
+rotation = 0.00533209
+
+[node name="Suregi68" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1777.88, 1734.5 )
+rotation = 0.00533209
+
+[node name="Suregi60" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1682.22, 1722.55 )
+rotation = 0.00533209
+
+[node name="Suregi61" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1883.12, 1715.37 )
+rotation = 0.00533209
+
+[node name="Suregi62" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 2150.98, 1705.8 )
+rotation = 0.00533209
+type = 2
+
+[node name="Suregi31" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 888.171, 1139.64 )
+
+[node name="Suregi25" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1195.23, 1381.81 )
+
+[node name="Suregi26" parent="Suregi-Pet" instance=ExtResource( 13 )]
+position = Vector2( 1135.11, 1383.48 )
+
+[node name="Suregi-1" type="Node2D" parent="."]
+
+[node name="Suregi24" parent="Suregi-1" instance=ExtResource( 13 )]
+position = Vector2( 2234.26, 87.9757 )
+
+[node name="Suregi26" parent="Suregi-1" instance=ExtResource( 13 )]
+position = Vector2( 2378.95, 289.129 )
+
+[node name="Suregi27" parent="Suregi-1" instance=ExtResource( 13 )]
+position = Vector2( 2229.26, 467.526 )
+
+[node name="Suregi28" parent="Suregi-1" instance=ExtResource( 13 )]
+position = Vector2( 2383.05, 666.429 )
+
+[node name="Suregi29" parent="Suregi-1" instance=ExtResource( 13 )]
+position = Vector2( 2228.22, 861.23 )
+
+[node name="Suregi30" parent="Suregi-1" instance=ExtResource( 13 )]
+position = Vector2( 2370.75, 1058.08 )
+
+[node name="Suregi31" parent="Suregi-1" instance=ExtResource( 13 )]
+position = Vector2( 2237.47, 1244.68 )
+
+[node name="Suregi32" parent="Suregi-1" instance=ExtResource( 13 )]
+position = Vector2( 2378.95, 1453.84 )
+
+[node name="Deco" type="Node2D" parent="."]
+z_index = -2
+
+[node name="벽" type="Node2D" parent="Deco"]
+
+[node name="Sprite" type="Sprite" parent="Deco/벽"]
+position = Vector2( 27.2722, 113.959 )
+scale = Vector2( 2.46101, 2.49145 )
+texture = ExtResource( 12 )
+
+[node name="Sprite2" type="Sprite" parent="Deco/벽"]
+position = Vector2( 712.974, 211.36 )
+scale = Vector2( 2.46101, 2.49145 )
+texture = ExtResource( 12 )
+
+[node name="Sprite3" type="Sprite" parent="Deco/벽"]
+position = Vector2( 1112.32, 186.035 )
+scale = Vector2( 2.46101, 2.49145 )
+texture = ExtResource( 12 )
+
+[node name="Sprite4" type="Sprite" parent="Deco/벽"]
+position = Vector2( 2154.51, -16.5581 )
+scale = Vector2( 2.46101, 2.49145 )
+texture = ExtResource( 12 )
+
+[node name="Sprite5" type="Sprite" parent="Deco/벽"]
+position = Vector2( 2306.45, 373.045 )
+scale = Vector2( 2.46101, 2.49145 )
+texture = ExtResource( 12 )
+
+[node name="Sprite6" type="Sprite" parent="Deco/벽"]
+position = Vector2( 2434.61, 950.641 )
+scale = Vector2( 2.46101, 2.49145 )
+texture = ExtResource( 12 )
+
+[node name="Sprite7" type="Sprite" parent="Deco/벽"]
+position = Vector2( 2145.22, 1254.38 )
+scale = Vector2( 2.46101, 2.49145 )
+texture = ExtResource( 12 )
+
+[node name="Sprite8" type="Sprite" parent="Deco/벽"]
+position = Vector2( 1784.09, 1297.43 )
+scale = Vector2( 2.46101, 2.49145 )
+texture = ExtResource( 12 )
+
+[node name="Sprite9" type="Sprite" parent="Deco/벽"]
+position = Vector2( 1277.06, 1158.72 )
+scale = Vector2( 2.46101, 2.49145 )
+texture = ExtResource( 12 )
+
+[node name="Sprite10" type="Sprite" parent="Deco/벽"]
+position = Vector2( 1221.27, 791.675 )
+scale = Vector2( 2.46101, 2.49145 )
+texture = ExtResource( 12 )
+
+[node name="Sprite11" type="Sprite" parent="Deco/벽"]
+position = Vector2( 560.593, 577.324 )
+scale = Vector2( 2.46101, 2.49145 )
+texture = ExtResource( 12 )
+
+[node name="Sprite12" type="Sprite" parent="Deco/벽"]
+position = Vector2( 235.21, 1141.64 )
+scale = Vector2( 2.46101, 2.49145 )
+texture = ExtResource( 12 )
+
+[node name="Sprite13" type="Sprite" parent="Deco/벽"]
+position = Vector2( 1235.94, 1663.03 )
+scale = Vector2( 2.46101, 2.49145 )
+texture = ExtResource( 12 )
+
+[node name="Sprite14" type="Sprite" parent="Deco/벽"]
+position = Vector2( 2619.29, 1932.13 )
+scale = Vector2( 2.46101, 2.49145 )
+texture = ExtResource( 12 )
+
+[node name="Sprite15" type="Sprite" parent="Deco/벽"]
+position = Vector2( 1812.04, 991.444 )
+scale = Vector2( 2.46101, 2.49145 )
+texture = ExtResource( 10 )
+
+[node name="Sprite16" type="Sprite" parent="Deco/벽"]
+position = Vector2( 1528.11, -20.3682 )
+scale = Vector2( 2.46101, 2.49145 )
+texture = ExtResource( 10 )
+
+[node name="Sprite17" type="Sprite" parent="Deco/벽"]
+position = Vector2( 2049.5, 253.234 )
+scale = Vector2( 2.46101, 2.49145 )
+texture = ExtResource( 10 )
+
+[node name="Sprite18" type="Sprite" parent="Deco/벽"]
+position = Vector2( 2508.95, 88.0403 )
+scale = Vector2( 2.46101, 2.49145 )
+texture = ExtResource( 10 )
+
+[node name="Sprite19" type="Sprite" parent="Deco/벽"]
+position = Vector2( 2152.75, 764.303 )
+scale = Vector2( 2.46101, 2.49145 )
+texture = ExtResource( 10 )
+
+[node name="Sprite20" type="Sprite" parent="Deco/벽"]
+position = Vector2( 2317.94, 1600.6 )
+scale = Vector2( 2.46101, 2.49145 )
+texture = ExtResource( 10 )
+
+[node name="Sprite21" type="Sprite" parent="Deco/벽"]
+position = Vector2( 1409.38, 1388.94 )
+scale = Vector2( 2.46101, 2.49145 )
+texture = ExtResource( 10 )
+
+[node name="Sprite22" type="Sprite" parent="Deco/벽"]
+position = Vector2( 402.726, 1951.63 )
+scale = Vector2( 2.46101, 2.49145 )
+texture = ExtResource( 10 )
+
+[node name="Sprite23" type="Sprite" parent="Deco/벽"]
+position = Vector2( 1698.47, 1900.01 )
+scale = Vector2( 2.46101, 2.49145 )
+texture = ExtResource( 10 )
+
+[node name="Sprite24" type="Sprite" parent="Deco/벽"]
+position = Vector2( 1269.71, -243.752 )
+scale = Vector2( 2.46101, 2.49145 )
+texture = ExtResource( 10 )
+
+[node name="바닥" type="Node2D" parent="Deco"]
+
+[node name="Sprite" type="Sprite" parent="Deco/바닥"]
+position = Vector2( 398.899, 195.265 )
+texture = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="Deco/바닥"]
+position = Vector2( 893.695, 189.421 )
+texture = ExtResource( 2 )
+
+[node name="Sprite3" type="Sprite" parent="Deco/바닥"]
+position = Vector2( 2086.04, 129.033 )
+texture = ExtResource( 2 )
+
+[node name="Sprite4" type="Sprite" parent="Deco/바닥"]
+position = Vector2( 2239.74, 505.337 )
+texture = ExtResource( 2 )
+
+[node name="Sprite5" type="Sprite" parent="Deco/바닥"]
+position = Vector2( 2086.04, 1589.2 )
+texture = ExtResource( 2 )
+
+[node name="Sprite6" type="Sprite" parent="Deco/바닥"]
+position = Vector2( 2088.69, 1085.69 )
+texture = ExtResource( 2 )
+
+[node name="Sprite7" type="Sprite" parent="Deco/바닥"]
+position = Vector2( 1248.63, 698.79 )
+texture = ExtResource( 2 )
+
+[node name="Sprite8" type="Sprite" parent="Deco/바닥"]
+position = Vector2( 355.57, 1090.99 )
+texture = ExtResource( 2 )
+
+[node name="Sprite9" type="Sprite" parent="Deco/바닥"]
+position = Vector2( 609.973, 1589.2 )
+texture = ExtResource( 2 )
+
+[node name="Sprite10" type="Sprite" parent="Deco/바닥"]
+position = Vector2( 1569.28, 1907.2 )
+texture = ExtResource( 2 )
+
+[node name="Sprite11" type="Sprite" parent="Deco/바닥"]
+position = Vector2( 1499.08, -145.192 )
+texture = ExtResource( 6 )
+
+[node name="Sprite12" type="Sprite" parent="Deco/바닥"]
+position = Vector2( 2145.07, -209.791 )
+texture = ExtResource( 6 )
+
+[node name="Sprite13" type="Sprite" parent="Deco/바닥"]
+position = Vector2( 1466.78, 826.73 )
+texture = ExtResource( 6 )
+
+[node name="Sprite14" type="Sprite" parent="Deco/바닥"]
+position = Vector2( 594.85, 1588.01 )
+texture = ExtResource( 6 )
+
+[node name="Sprite15" type="Sprite" parent="Deco/바닥"]
+position = Vector2( 2484.77, 1906.68 )
+texture = ExtResource( 6 )
+
+[node name="Sprite16" type="Sprite" parent="Deco/바닥"]
+position = Vector2( 1090.57, 1906.68 )
+texture = ExtResource( 6 )
+
+[node name="Node2D3" type="Node2D" parent="Deco"]
+position = Vector2( -3.89603, -1.948 )
+[connection signal="hit" from="Player" to="CanvasLayer/HealthIndicator" method="_on_Player_hit"]
+[connection signal="item_equip" from="Player" to="CanvasLayer/Control/ItemIndicator" method="_on_Player_item_equip"]
+[connection signal="score" from="Player" to="CanvasLayer/Control/ScoreIndicator" method="_on_Player_score"]
+[connection signal="item_expire" from="CanvasLayer/Control/ItemIndicator" to="Player" method="_on_ItemIndicator_item_expire"]
+[connection signal="timeout" from="CanvasLayer/Control/TimeIndicator" to="CanvasLayer/Control/ScoreIndicator" method="_on_TimeIndicator_timeout"]

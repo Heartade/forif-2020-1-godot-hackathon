@@ -21,4 +21,4 @@ func _on_StartGameButton_pressed():
 
 
 func _on_StartGame_pressed():
-	get_tree().change_scene("res://World.tscn")
+	get_tree().change_scene("res://Bathroom.tscn")

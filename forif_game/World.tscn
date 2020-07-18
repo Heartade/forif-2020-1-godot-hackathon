@@ -68,6 +68,7 @@ __meta__ = {
 time_limit = 30.0
 
 [node name="ScoreIndicator" parent="CanvasLayer/Control" instance=ExtResource( 11 )]
+next_scene = "res://Kitchen.tscn"
 
 [node name="ItemBoxClosed2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 478, 171 )
@@ -119,6 +120,43 @@ position = Vector2( 528, 178 )
 
 [node name="Suregi3" parent="." instance=ExtResource( 13 )]
 position = Vector2( 550, 169 )
+type = 2
+
+[node name="Suregi4" parent="." instance=ExtResource( 13 )]
+position = Vector2( 572, 175 )
+type = 2
+
+[node name="Suregi5" parent="." instance=ExtResource( 13 )]
+position = Vector2( 697, 287 )
+type = 1
+
+[node name="Suregi6" parent="." instance=ExtResource( 13 )]
+position = Vector2( 616, 323 )
+rotation = -0.877777
+type = 2
+
+[node name="Suregi9" parent="." instance=ExtResource( 13 )]
+position = Vector2( 625, 362 )
+rotation = -0.877777
+type = 1
+
+[node name="Suregi10" parent="." instance=ExtResource( 13 )]
+position = Vector2( 731, 243 )
+rotation = -0.877777
+type = 1
+
+[node name="Suregi11" parent="." instance=ExtResource( 13 )]
+position = Vector2( 702, 181 )
+rotation = -0.877777
+type = 1
+
+[node name="Suregi7" parent="." instance=ExtResource( 13 )]
+position = Vector2( 680, 306 )
+rotation = 0.653979
+
+[node name="Suregi8" parent="." instance=ExtResource( 13 )]
+position = Vector2( 645, 304 )
+rotation = 0.653979
 type = 2
 [connection signal="hit" from="Player" to="CanvasLayer/HealthIndicator" method="_on_Player_hit"]
 [connection signal="item_equip" from="Player" to="CanvasLayer/Control/ItemIndicator" method="_on_Player_item_equip"]

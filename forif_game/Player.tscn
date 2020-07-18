@@ -6,8 +6,8 @@
 [ext_resource path="res://Sprites/character1.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/character3.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/character4.png" type="Texture" id=6]
+[ext_resource path="res://ParallaxBackground.tscn" type="PackedScene" id=7]
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=10]
-[ext_resource path="res://Sprites/wall.png" type="Texture" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -58,12 +58,4 @@ shape = SubResource( 2 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2( 1024, 1024 )
-
-[node name="Sky" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2( 2, 2 )
-texture = ExtResource( 12 )
-centered = false
+[node name="ParallaxBackground" parent="." instance=ExtResource( 7 )]

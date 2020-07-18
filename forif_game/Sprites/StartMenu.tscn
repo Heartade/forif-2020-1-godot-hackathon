@@ -1,15 +1,25 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://StartMenu.gd" type="Script" id=1]
 [ext_resource path="res://큇게임.png" type="Texture" id=2]
 [ext_resource path="res://스타뜨겜.png" type="Texture" id=3]
 [ext_resource path="res://제목.png" type="Texture" id=4]
 [ext_resource path="res://왓츠디스.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/KakaoTalk_20200718_191514676.jpg" type="Texture" id=6]
 
 [node name="StartMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
